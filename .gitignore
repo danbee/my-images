@@ -17,3 +17,6 @@
 
 # Ignore environment variables
 .envrc
+
+# Ignore dragonfly uploads
+/public/system
