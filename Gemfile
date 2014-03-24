@@ -39,6 +39,10 @@ group :development, :test do
   gem 'binding_of_caller'
 end
 
+group :test do
+  gem 'capybara'
+end
+
 gem 'simple_form'
 gem 'omniauth-twitter'
 gem 'dragonfly'
