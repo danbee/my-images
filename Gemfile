@@ -32,6 +32,16 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'pry'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
+gem 'simple_form'
+gem 'devise'
+gem 'omniauth-twitter'
 gem 'dragonfly'
 
 # Use ActiveModel has_secure_password
