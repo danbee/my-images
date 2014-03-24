@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   dragonfly_accessor :avatar
 
+  has_many :images
+
   def self.find_or_create_from_auth(auth)
     find_by(auth.slice(:provider, :uid)) || create_from_auth(auth)
   end

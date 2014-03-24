@@ -1,0 +1,18 @@
+<h1>My Images</h1>
+
+<ul class="images">
+  <% @images.each do |image| %>
+    <li>
+      <%= link_to image_tag(image.image.thumb('100x100#').url), image.image.url %><br>
+      <%= link_to 'Delete', user_image_path(image), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Upload New Image</h2>
+
+<%= simple_form_for [@current_user, @images.new] do |f| %>
+  <%= f.input :user_id, as: :hidden %>
+  <%= f.input :image, as: :file %>
+  <%= f.submit %>
+<% end %>
