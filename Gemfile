@@ -40,7 +40,6 @@ group :development, :test do
 end
 
 gem 'simple_form'
-gem 'devise'
 gem 'omniauth-twitter'
 gem 'dragonfly'
 
