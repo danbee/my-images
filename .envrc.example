@@ -1,2 +1,2 @@
-export TWITTER_KEY=key
-export TWITTER_SECRET=secret
+export GITHUB_KEY=[key]
+export GITHUB_SECRET=[secret]

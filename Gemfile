@@ -4,7 +4,7 @@ gem "rails", "5.2.0"
 
 gem "dragonfly"
 gem "jquery-rails"
-gem "omniauth-twitter"
+gem "omniauth-github"
 gem "puma"
 gem "sass-rails"
 gem "simple_form"
