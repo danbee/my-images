@@ -5,20 +5,16 @@
 ul.images
   list-style: none
   padding-left: 0
-  display: flex
-  flex-wrap: wrap
+  display: grid
+  grid-template-columns: repeat(6, 1fr)
+  grid-gap: 0.75rem
   justify-content: space-between
 
-  display: -webkit-flex
-  -webkit-flex-wrap: wrap
-  -webkit-justify-content: space-between
-
   li
-    outline: 1px solid red
     margin-bottom: 1em
 
   img
-    max-width: 100px
-    width: 100%
-    border: 1px solid rgba(0, 0, 0, 0.2)
+    max-width: calc(100% - 0.5rem)
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2)
+    border-radius: 2px
     padding: 0.25rem
