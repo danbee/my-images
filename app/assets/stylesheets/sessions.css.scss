@@ -1,0 +1,27 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.centre-stage {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.github-button {
+  display: block;
+  background: white;
+  color: black;
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  img {
+    width: 1.2rem;
+    vertical-align: middle;
+    margin-right: 0.25rem;
+  }
+}

@@ -1,1 +1,6 @@
-<%= link_to 'Sign in with GitHub', '/auth/github' %>
+<div class="centre-stage">
+  <%= link_to '/auth/github', class: "github-button" do %>
+    <%= image_tag "github-64.png" %>
+    Sign in with GitHub
+  <% end %>
+</div>
