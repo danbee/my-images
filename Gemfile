@@ -1,14 +1,17 @@
 source "https://rubygems.org"
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem "rails", "5.2.0"
 
 gem "dragonfly"
+gem "http"
 gem "jquery-rails"
 gem "omniauth-github"
+gem "pg"
 gem "puma"
 gem "sass-rails"
 gem "simple_form"
-gem "sqlite3"
 gem "uglifier"
 
 group :doc do
