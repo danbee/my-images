@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem "dotenv-rails", groups: %i[development test]
 
 gem "rails", "5.2.0"
 
