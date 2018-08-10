@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+ruby "2.5.1"
+
 gem "dotenv-rails", groups: %i[development test]
 
 gem "rails", "5.2.0"
