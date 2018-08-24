@@ -16,7 +16,7 @@
 /tmp
 
 # Ignore environment variables
-.envrc
+.env
 
 # Ignore dragonfly uploads
 /public/system
