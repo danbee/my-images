@@ -8,7 +8,7 @@ if Rails.env.production?
 end
 require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
-
+require "shoulda/matchers"
 require "capybara/rspec"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -24,7 +24,7 @@ require "capybara/rspec"
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -63,6 +63,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.include AuthHelpers, type: :feature
 end
 
 Shoulda::Matchers.configure do |config|
@@ -71,3 +73,14 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+OmniAuth.config.test_mode = true
+omniauth_hash = {
+  provider: "github",
+  uid: "1",
+  credentials: {
+    token: "12345"
+  }
+}
+
+OmniAuth.config.add_mock(:github, omniauth_hash)
