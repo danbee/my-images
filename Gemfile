@@ -31,4 +31,5 @@ group :test do
   gem "launchy"
   gem "rspec-rails"
   gem "shoulda-matchers"
+  gem "webmock"
 end
