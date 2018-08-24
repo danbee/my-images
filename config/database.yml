@@ -11,4 +11,4 @@ test:
   timeout: 5000
 
 production:
-  url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV.fetch("DATABASE_URL", "postgresql://localhost/my-images") %>
