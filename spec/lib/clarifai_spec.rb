@@ -1,32 +1,19 @@
-require "spec_helper"
 ENV["CLARIFAI_API_KEY"] = "1234"
+
+require "spec_helper"
 require "clarifai"
+require_relative "../support/clarifai_helpers"
 
 describe Clarifai do
+  include ClarifaiHelpers
+
   describe ".tags" do
     it "predicts tags for our image" do
-      WebMock.
-        stub_request(:post, Clarifai::API_URL).
-        to_return(status: 200, body: stub_body.to_json)
+      stub_clarifai(%w[computer technology])
 
       clarifai_image = Clarifai.new("spec/fixtures/spectrum.jpg")
 
-      expect(clarifai_image.tags).to eq(["computer", "technology"])
-    end
-
-    def stub_body
-      {
-        "outputs": [
-          {
-            "data": {
-              "concepts": [
-                { "name": "computer", "value": 0.96887743 },
-                { "name": "technology", "value": 0.96544206 },
-              ],
-            },
-          },
-        ],
-      }
+      expect(clarifai_image.tags).to eq(%w[computer technology])
     end
   end
 end
