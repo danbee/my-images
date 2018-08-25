@@ -1,9 +1,10 @@
-require 'base64'
-require 'http'
+require "base64"
+require "http"
 
 class Clarifai
   KEY = ENV.fetch("CLARIFAI_API_KEY").freeze
-  API_URL =  "https://api.clarifai.com/v2/models/aaa03c23b3724a16a56b629203edc62c/outputs"
+  API_URL = "https://api.clarifai.com/v2/models/" \
+            "aaa03c23b3724a16a56b629203edc62c/outputs".freeze
 
   attr_reader :tags
 
@@ -14,18 +15,18 @@ class Clarifai
   def predict!
     headers = {
       "Authorization": "Key #{KEY}",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     }
     params = {
       "inputs": [
         {
           "data": {
             "image": {
-              "base64": Base64.encode64(File.read(@image_path))
-            }
-          }
-        }
-      ]
+              "base64": Base64.encode64(File.read(@image_path)),
+            },
+          },
+        },
+      ],
     }
 
     resp = HTTP.

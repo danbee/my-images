@@ -13,22 +13,22 @@ describe Clarifai do
                 {
                   "id": "ai_PpTcwbdQ",
                   "name": "computer",
-                  "value": 0.96887743
+                  "value": 0.96887743,
                 },
                 {
                   "id": "ai_62K34TR4",
                   "name": "technology",
-                  "value": 0.96544206
-                }
-              ]
-            }
-          }
-        ]
+                  "value": 0.96544206,
+                },
+              ],
+            },
+          },
+        ],
       }.to_json
 
       WebMock.
         stub_request(:post, Clarifai::API_URL).
-        to_return(:status => 200, :body => stub_body)
+        to_return(status: 200, body: stub_body)
 
       clarifai_image = Clarifai.new("spec/fixtures/spectrum.jpg")
       clarifai_image.predict!
@@ -37,5 +37,3 @@ describe Clarifai do
     end
   end
 end
-
-
