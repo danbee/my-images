@@ -18,4 +18,12 @@ describe "user manages images" do
 
     expect(page).not_to have_css(".image")
   end
+
+  it "views the image" do
+    user = User.create(uid: 1)
+    Image.create(user: user, image: "#{Rails.root}/spec/fixtures/spectrum.jpg")
+
+    sign_in
+    find(".image").click
+  end
 end

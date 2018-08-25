@@ -5,6 +5,6 @@ MyImages::Application.routes.draw do
   get "/auth/:provider/callback", to: "sessions#create", as: :create_session
 
   resource :user, only: [] do
-    resources :images, only: %i[index create destroy]
+    resources :images, only: %i[index show create destroy]
   end
 end

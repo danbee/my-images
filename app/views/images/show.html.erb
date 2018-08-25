@@ -1,0 +1,13 @@
+<div class="show-image">
+  <div class="image-container">
+    <%= image_tag(@image.image.url) %>
+  </div>
+
+  <div class="image-info">
+    <ul class="image-tags">
+      <% @image.tags.each do |tag| %>
+        <li class="image-tag"><%= tag %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

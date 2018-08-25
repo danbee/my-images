@@ -3,8 +3,10 @@
 <ul class="images">
   <% @images.each do |image| %>
     <li>
-      <%= link_to image_tag(image.image.thumb('200x200#').url), image.image.url, class: :image %><br>
-      <%= link_to 'Delete', user_image_path(image), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to image_tag(image.image.thumb('200x200#').url),
+          user_image_path(image), class: :image %><br>
+      <%= link_to 'Delete', user_image_path(image),
+          method: :delete, data: { confirm: 'Are you sure?' } %>
     </li>
   <% end %>
 </ul>
