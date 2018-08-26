@@ -65,7 +65,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include AuthHelpers, type: :feature
-  config.include ClarifaiHelpers, type: :job
+  config.include ClarifaiHelpers
 end
 
 Shoulda::Matchers.configure do |config|
