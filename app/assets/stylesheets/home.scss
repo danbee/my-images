@@ -32,4 +32,23 @@ body {
 header {
   background-color: black;
   text-align: right;
+
+  h1 {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+main {
+  .container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 }

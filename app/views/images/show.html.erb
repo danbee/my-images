@@ -1,3 +1,9 @@
+<% content_for :title do %>
+  <h1>My Images</h1>
+  &rarr;
+  <%= @image.image.name %>
+<% end %>
+
 <div class="show-image">
   <div class="image-container">
     <%= image_tag(@image.image.url) %>
