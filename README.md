@@ -25,3 +25,11 @@ Run the server:
 ```sh
 $ foreman start
 ```
+
+## Specs
+
+Run the specs with:
+
+```sh
+$ bundle exec rspec
+```
