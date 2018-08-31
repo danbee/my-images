@@ -11,3 +11,17 @@ A simple DragonFly powered image storage application.
 * Ruby 2.5.1
 * PostgreSQL 9+
 * Imagemagick
+
+## Getting started
+
+Bootstrap the project:
+
+```sh
+$ bin/setup
+```
+
+Run the server:
+
+```sh
+$ foreman start
+```
