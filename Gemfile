@@ -16,6 +16,7 @@ gem "puma"
 gem "sass-rails"
 gem "simple_form"
 gem "uglifier"
+gem "webpacker"
 
 group :doc do
   gem "sdoc", require: false
@@ -30,6 +31,7 @@ end
 group :test do
   gem "capybara"
   gem "launchy"
+  gem "poltergeist"
   gem "rspec-rails"
   gem "shoulda-matchers"
   gem "webmock"

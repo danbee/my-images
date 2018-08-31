@@ -4,19 +4,23 @@
   <%= @image.image.name %>
 <% end %>
 
-<div class="show-image">
+<div class="show-image" data-image-id="<%= @image.id %>">
   <div class="image-container">
     <%= render "image", image: @image %>
   </div>
 
   <div class="image-info">
-    <%= render "tags/tags", image: @image, tags: @image.tags %>
+    <div class="image-tags">
+      <%= render "tags/tags", image: @image, tags: @image.tags %>
 
-    <div class="new-tag-form">
-      <%= form_tag user_image_tags_path(@image), remote: true, method: :post do %>
-        <%= text_field_tag :tag %>
-        <%= submit_tag "Add Tag" %>
-      <% end %>
+      <div class="new-tag-form">
+        <%= form_tag user_image_tags_path(@image),
+            remote: true,
+            method: :post do %>
+          <%= text_field_tag :tag %>
+          <%= submit_tag "Add Tag" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

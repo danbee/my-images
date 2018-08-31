@@ -4,7 +4,7 @@ class TagsController < ApplicationController
   def create
     image = @current_user.images.find(params[:image_id])
     tag = params[:tag]
-    image.tags << tag unless image.tags.include? tag
+    image.tags << tag unless image.tags.include?(tag)
     image.save
 
     respond_to do |format|

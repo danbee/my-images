@@ -9,6 +9,7 @@ end
 require "rspec/rails"
 require "shoulda/matchers"
 require "capybara/rspec"
+require "capybara/poltergeist"
 
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].each { |f| require f }
 
@@ -18,6 +19,8 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
+Capybara.javascript_driver = :poltergeist
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

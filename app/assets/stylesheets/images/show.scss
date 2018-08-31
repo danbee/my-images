@@ -14,7 +14,7 @@
     grid-area: image-info;
   }
 
-  .image-tags {
+  .image-tags-list {
     list-style: none;
     padding-left: 0;
   }
@@ -27,6 +27,10 @@
     color: #333;
     margin: 0.25rem 0.125rem;
     padding: 0.125rem 0.5rem;
+
+    &.hidden {
+      display: none;
+    }
   }
 
   img {
