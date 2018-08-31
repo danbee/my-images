@@ -40,10 +40,3 @@ Shoulda::Matchers.configure do |config|
 end
 
 OmniAuth.config.test_mode = true
-
-OmniAuth.config.add_mock(
-  :github,
-  provider: "github",
-  uid: "1",
-  credentials: { token: "12345" },
-)

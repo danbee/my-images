@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "user manages images" do
+feature "user manages images" do
   include ActiveJob::TestHelper
 
   it "uploads the image" do
@@ -14,10 +14,13 @@ describe "user manages images" do
   end
 
   it "deletes the image" do
-    user = User.create(uid: 1)
-    Image.create(user: user, image: "#{Rails.root}/spec/fixtures/spectrum.jpg")
+    user = User.create(uid: "1")
+    Image.create(
+      user: user,
+      image: File.new("#{Rails.root}/spec/fixtures/spectrum.jpg"),
+    )
 
-    sign_in
+    sign_in(user)
     click_on("Delete")
 
     expect(page).not_to have_css(".image")
