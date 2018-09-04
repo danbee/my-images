@@ -10,20 +10,10 @@
   </div>
 
   <div class="image-info">
-    <ul class="image-tags">
-      <% @image.tags.each do |tag| %>
-        <li class="image-tag" id="tag-<%= tag %>">
-          <%= tag %>
-          <%= link_to "&times;".html_safe,
-              user_image_tag_path(@image, tag),
-              method: :delete,
-              class: "delete-tag" %>
-        </li>
-      <% end %>
-    </ul>
+    <%= render "tags/tags", image: @image, tags: @image.tags %>
 
     <div class="new-tag-form">
-      <%= form_tag user_image_tags_path(@image), method: :post do %>
+      <%= form_tag user_image_tags_path(@image), remote: true, method: :post do %>
         <%= text_field_tag :tag %>
         <%= submit_tag "Add Tag" %>
       <% end %>
