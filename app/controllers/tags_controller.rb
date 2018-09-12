@@ -4,13 +4,12 @@ class TagsController < ApplicationController
   def create
     image = @current_user.images.find(params[:image_id])
     tag = params[:tag]
-    image.tags << tag unless image.tags.include?(tag)
-    image.save
-
-    if request.xhr?
+    if !image.tags.include?(tag)
+      image.tags << tag
+      image.save
       render partial: "tags/tag", locals: { image: image, tag: tag }
     else
-      redirect_to([:user, image])
+      head 200, content_type: "text/html"
     end
   end
 
@@ -20,9 +19,6 @@ class TagsController < ApplicationController
     image.tags.delete(tag)
     image.save
 
-    respond_to do |format|
-      format.html { redirect_to([:user, image]) }
-      format.js { render "index", locals: { image: image, tags: image.tags } }
-    end
+    render json: { status: :ok }
   end
 end
