@@ -7,9 +7,10 @@ class TagsController < ApplicationController
     image.tags << tag unless image.tags.include?(tag)
     image.save
 
-    respond_to do |format|
-      format.html { redirect_to([:user, image]) }
-      format.js { render "index", locals: { image: image, tags: image.tags } }
+    if request.xhr?
+      render partial: "tags/tag", locals: { image: image, tag: tag }
+    else
+      redirect_to([:user, image])
     end
   end
 

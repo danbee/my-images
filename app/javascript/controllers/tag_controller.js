@@ -2,15 +2,7 @@ import { Controller } from "stimulus";
 import ajaxService from "../services/ajax_service";
 
 export default class extends Controller {
-  static targets = [ "name" ];
-
-  connect() {
-    console.log("Connected to our tags");
-  }
-
-  disconnect() {
-    console.log("Bye bye tag!");
-  }
+  static targets = ["name"];
 
   delete(event) {
     const imageId = this.element.dataset.imageId;
