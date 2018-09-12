@@ -3,15 +3,9 @@
     <%= render "tags/tags", image: image, tags: image.tags %>
 
     <div class="new-tag-form">
-      <%= form_with url: user_image_tags_path(image),
+      <%= form_tag user_image_tags_path(image),
         method: :post,
-        html: {
-          data: {
-            remote: true,
-            type: "html",
-            action: "ajax:success->tags#onPostSuccess"
-          }
-        } do %>
+        data: { action: "tags#create" } do %>
         <%= text_field_tag :tag, nil, data: { target: "tags.tag" } %>
         <%= submit_tag "Add Tag" %>
       <% end %>

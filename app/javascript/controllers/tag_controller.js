@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ["name"];
 
   delete(event) {
-    const imageId = this.element.dataset.imageId;
     const tag = this.nameTarget.innerText;
 
     event.preventDefault();

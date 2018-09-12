@@ -18,12 +18,15 @@ const config = () => ({
   headers: { "X-CSRF-Token": csrfToken() }
 });
 
-
 export default {
   createTag: (tag) => {
+    return axios.post(`/user/images/${imageId()}/tags`, { tag }, config());
   },
 
   deleteTag: (tag) => {
-    return axios.delete(`/user/images/${imageId()}/tags/${tag}.json`, config());
+    return axios.delete(
+      `/user/images/${imageId()}/tags/${encodeURIComponent(tag)}`,
+      config()
+    );
   }
 }

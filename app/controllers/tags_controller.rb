@@ -9,7 +9,7 @@ class TagsController < ApplicationController
       image.save
       render partial: "tags/tag", locals: { image: image, tag: tag }
     else
-      head 200, content_type: "text/html"
+      head :no_content, content_type: "text/html"
     end
   end
 
@@ -19,6 +19,6 @@ class TagsController < ApplicationController
     image.tags.delete(tag)
     image.save
 
-    render json: { status: :ok }
+    head :no_content
   end
 end
