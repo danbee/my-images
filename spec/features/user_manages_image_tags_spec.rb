@@ -18,7 +18,7 @@ feature "user manages image tags by visitng images show page" do
     end
   end
 
-  scenario "and can click the link to delete a tag" do
+  scenario "and can click the link to delete a tag", js: true do
     tags = ["one", "two"]
     user = User.create(uid: "123")
     Image.create(
@@ -37,7 +37,7 @@ feature "user manages image tags by visitng images show page" do
     expect(page).to_not have_content(tags.first)
   end
 
-  scenario "user can add a tag to the list of tags" do
+  scenario "user can add a tag to the list of tags", js: true do
     tags = ["one", "two"]
     user = User.create(uid: "123")
     new_tag = "new tag"

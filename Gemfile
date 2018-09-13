@@ -29,9 +29,10 @@ end
 
 group :test do
   gem "capybara"
+  gem "geckodriver-helper"
   gem "launchy"
-  gem "poltergeist"
   gem "rspec-rails"
+  gem "selenium-webdriver"
   gem "shoulda-matchers"
   gem "webmock"
 end

@@ -9,7 +9,6 @@ end
 require "rspec/rails"
 require "shoulda/matchers"
 require "capybara/rspec"
-require "capybara/poltergeist"
 
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].each { |f| require f }
 
@@ -20,7 +19,14 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
-Capybara.javascript_driver = :poltergeist
+Capybara.register_driver :firefox_headless do |app|
+  options = ::Selenium::WebDriver::Firefox::Options.new
+  options.args << "--headless"
+
+  Capybara::Selenium::Driver.new(app, browser: :firefox, options: options)
+end
+
+Capybara.javascript_driver = :firefox_headless
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
