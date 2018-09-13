@@ -26,11 +26,21 @@
     background: white;
     color: #333;
     margin: 0.25rem 0.125rem;
-    padding: 0.125rem 0.5rem;
+    padding: 0.1rem 0.25rem 0.15rem;
+
+    span {
+      margin: 0 0.15rem;
+    }
 
     &.hidden {
       display: none;
     }
+  }
+
+  .delete-tag {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
   }
 
   img {
