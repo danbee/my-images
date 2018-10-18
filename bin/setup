@@ -7,8 +7,8 @@
 set -e
 
 # Set up Ruby dependencies via Bundler
-gem list bundler --installed > /dev/null || gem install bundler
-gem list foreman --installed > /dev/null || gem install foreman
+gem list bundler --installed >/dev/null || gem install bundler
+gem list foreman --installed >/dev/null || gem install foreman
 bundle install
 
 # Install Javascript dependencies
