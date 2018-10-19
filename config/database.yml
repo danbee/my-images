@@ -1,6 +1,7 @@
 development:
   adapter: postgresql
   database: my_images_dev
+  url: <%= ENV['DATABASE_URL'] %>
   pool: 5
   timeout: 5000
 

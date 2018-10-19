@@ -1,0 +1,13 @@
+app:
+  build:
+    image: my-images
+    dockerfile: Dockerfile
+  depends_on:
+    - postgres
+  environment:
+    DATABASE_URL: postgres://my_images@postgres/my_images_test
+postgres:
+  image: healthcheck/postgres:alpine
+  environment:
+    POSTGRES_USER: my_images
+    POSTGRES_DB: my_images_test

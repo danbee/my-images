@@ -1,6 +1,7 @@
 {
   "engines": {
-    "node": "10.4.0"
+    "node": ">=10.4",
+    "yarn": ">=1.9"
   },
   "dependencies": {
     "@rails/webpacker": "3.5",

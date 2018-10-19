@@ -1,0 +1,7 @@
+- name: db_setup
+  command: bundle exec rails db:setup
+  service: app
+
+- name: test
+  command: bundle exec rake
+  service: app
