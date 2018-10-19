@@ -5,9 +5,9 @@
     <div class="new-tag-form">
       <%= form_tag user_image_tags_path(image),
         method: :post,
-        data: { remote: true, action: "tags#create" } do %>
+        data: { action: "tags#create" } do %>
         <%= text_field_tag :tag, nil, data: { target: "tags.tag" } %>
-        <%= submit_tag "Add Tag" %>
+        <%= submit_tag "Add Tag", data: { disable_with: false } %>
       <% end %>
     </div>
   </div>

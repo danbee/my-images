@@ -40,7 +40,7 @@ feature "user manages image tags by visitng images show page" do
   scenario "user can add a tag to the list of tags", js: true do
     tags = ["one", "two"]
     user = User.create(uid: "123")
-    new_tag = "new tag"
+    new_tag = "newtag"
     Image.create(
       user: user,
       tags: tags,

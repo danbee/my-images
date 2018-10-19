@@ -13,8 +13,8 @@ export default class extends Controller {
       .then(response => {
         if (response.status == 200) {
           this.tagListTarget.innerHTML += response.data;
+          this.tagTarget.value = "";
         };
-        this.tagTarget.value = "";
       })
   }
 }
