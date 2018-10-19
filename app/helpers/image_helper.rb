@@ -1,9 +1,15 @@
 module ImageHelper
+  def image_variant(image, variant)
+    image.variant(variant)
+  end
+
   def image_thumb(image, size)
-    if image.format == "jpeg"
-      image.thumb(size).encode("jpg", "-quality 90")
-    else
-      image.thumb(size)
-    end
+    image.variant(
+      combine_options: {
+        gravity: "center",
+        resize: "#{size}x#{size}^",
+        extent: "#{size}x#{size}",
+      },
+    )
   end
 end

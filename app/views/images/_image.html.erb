@@ -1,17 +1,17 @@
 <picture>
-  <source srcset="<%= image_thumb(@image.image, "2000x2000").url %>"
+  <source srcset="<%= url_for image_variant(@image.image, resize: "2000x2000") %>"
           media="(min-width: 960px) and (-webkit-min-device-pixel-ratio: 2),
                   (min-width: 960px) and (min-resolution: 192dpi)">
-  <source srcset="<%= image_thumb(@image.image, "1000x1000").url %>"
+  <source srcset="<%= url_for image_variant(@image.image, resize: "1000x1000") %>"
           media="(min-width: 960px)">
-  <source srcset="<%= image_thumb(@image.image, "1400x1400").url %>"
+  <source srcset="<%= url_for image_variant(@image.image, resize: "1400x1400") %>"
           media="(min-width: 640px) and (-webkit-min-device-pixel-ratio: 2),
                   (min-width: 640px) and (min-resolution: 192dpi)">
-  <source srcset="<%= image_thumb(@image.image, "700x700").url %>"
+  <source srcset="<%= url_for image_variant(@image.image, resize: "700x700") %>"
           media="(min-width: 640px)">
-  <source srcset="<%= image_thumb(@image.image, "960x960").url %>"
+  <source srcset="<%= url_for image_variant(@image.image, resize: "960x960") %>"
           media="(-webkit-min-device-pixel-ratio: 2),
                   (min-resolution: 192dpi)">
-  <source srcset="<%= image_thumb(@image.image, "480x480").url %>">
-  <img src="<%= image_thumb(@image.image, "480x480").url %>" itemprop="image">
+  <source srcset="<%= url_for image_variant(@image.image, resize: "480x480") %>">
+  <img src="<%= url_for image_variant(@image.image, resize: "480x480") %>" itemprop="image">
 </picture>

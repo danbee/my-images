@@ -1,5 +1,6 @@
 class Image < ActiveRecord::Base
-  dragonfly_accessor :image
+  dragonfly_accessor :df_image
+  has_one_attached :image
 
   validates :image, presence: true
 
