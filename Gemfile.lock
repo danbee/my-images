@@ -82,7 +82,7 @@ GEM
     dotenv-rails (2.5.0)
       dotenv (= 2.5.0)
       railties (>= 3.2, < 6.0)
-    dragonfly (1.1.5)
+    dragonfly (1.2.0)
       addressable (~> 2.3)
       multi_json (~> 1.0)
       rack (>= 1.3)
