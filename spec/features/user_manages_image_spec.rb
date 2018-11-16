@@ -15,10 +15,14 @@ feature "user manages images" do
 
   it "deletes the image" do
     user = User.create(uid: "1")
-    Image.create(
+    image = Image.new(
       user: user,
-      image: File.new("#{Rails.root}/spec/fixtures/spectrum.jpg"),
     )
+    image.image.attach(
+      io: File.open("#{Rails.root}/spec/fixtures/spectrum.jpg"),
+      filename: "spectrum.jpg",
+    )
+    image.save
 
     sign_in(user)
     click_on("Delete")

@@ -6,8 +6,8 @@ class Clarifai
   API_URL = "https://api.clarifai.com/v2/models/" \
             "aaa03c23b3724a16a56b629203edc62c/outputs".freeze
 
-  def initialize(image_path)
-    @image_path = image_path
+  def initialize(image_data)
+    @image_data = image_data
   end
 
   def tags
@@ -15,6 +15,8 @@ class Clarifai
   end
 
   private
+
+  attr_reader :image_data
 
   def extract_tags(response_hash)
     response_hash["outputs"][0]["data"]["concepts"].map do |concept|
@@ -40,10 +42,6 @@ class Clarifai
   end
 
   def image_base64
-    Base64.encode64(image_file)
-  end
-
-  def image_file
-    File.read(@image_path)
+    Base64.encode64(image_data)
   end
 end
