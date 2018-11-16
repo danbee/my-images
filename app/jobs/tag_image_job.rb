@@ -4,7 +4,7 @@ class TagImageJob < ApplicationJob
   def perform(image_id:)
     image = Image.find(image_id)
 
-    tags = Clarifai.new(image.image.file.path).tags
+    tags = Clarifai.new(image.image.download).tags
     image.update_attributes(tags: tags)
   end
 end

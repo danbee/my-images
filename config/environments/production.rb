@@ -72,6 +72,9 @@ MyImages::Application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+  # Store files locally.
+  config.active_storage.service = :local
+
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 

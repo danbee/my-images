@@ -1,7 +1,7 @@
 class Image < ActiveRecord::Base
-  dragonfly_accessor :image
+  has_one_attached :image
 
-  validates :image, presence: true
+  validates :image, attached: true
 
   belongs_to :user
 end

@@ -4,11 +4,15 @@ feature "user manages image tags by visitng images show page" do
   scenario "and can see an X to link for deletion on a tag" do
     tags = ["one", "two"]
     user = User.create(uid: "123")
-    Image.create(
+    image = Image.new(
       user: user,
       tags: tags,
-      image: File.new("#{Rails.root}/spec/fixtures/spectrum.jpg"),
     )
+    image.image.attach(
+      io: File.open("#{Rails.root}/spec/fixtures/spectrum.jpg"),
+      filename: "spectrum.jpg",
+    )
+    image.save
 
     sign_in(user)
     page.find(".image").click
@@ -21,11 +25,15 @@ feature "user manages image tags by visitng images show page" do
   scenario "and can click the link to delete a tag", js: true do
     tags = ["one", "two"]
     user = User.create(uid: "123")
-    Image.create(
+    image = Image.new(
       user: user,
       tags: tags,
-      image: File.new("#{Rails.root}/spec/fixtures/spectrum.jpg"),
     )
+    image.image.attach(
+      io: File.open("#{Rails.root}/spec/fixtures/spectrum.jpg"),
+      filename: "spectrum.jpg",
+    )
+    image.save
 
     sign_in(user)
     page.find(".image").click
@@ -41,11 +49,15 @@ feature "user manages image tags by visitng images show page" do
     tags = ["one", "two"]
     user = User.create(uid: "123")
     new_tag = "newtag"
-    Image.create(
+    image = Image.new(
       user: user,
       tags: tags,
-      image: File.new("#{Rails.root}/spec/fixtures/spectrum.jpg"),
     )
+    image.image.attach(
+      io: File.open("#{Rails.root}/spec/fixtures/spectrum.jpg"),
+      filename: "spectrum.jpg",
+    )
+    image.save
 
     sign_in(user)
     page.find(".image").click

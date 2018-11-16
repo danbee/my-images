@@ -18,6 +18,9 @@
 # Ignore environment variables
 .env
 
+# Ignore Active Storage
+/storage
+
 # Ignore dragonfly uploads
 /public/system
 /public/packs

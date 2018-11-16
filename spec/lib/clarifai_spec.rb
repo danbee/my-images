@@ -11,7 +11,7 @@ describe Clarifai do
     it "predicts tags for our image" do
       stub_api(%w[computer technology])
 
-      clarifai = Clarifai.new("spec/fixtures/spectrum.jpg")
+      clarifai = Clarifai.new(File.read("spec/fixtures/spectrum.jpg"))
 
       expect(clarifai.tags).to eq(%w[computer technology])
     end
