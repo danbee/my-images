@@ -91,7 +91,7 @@ GEM
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
-    geckodriver-helper (0.21.0)
+    geckodriver-helper (0.23.0)
       archive-zip (~> 0.7)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
