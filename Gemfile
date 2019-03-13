@@ -4,7 +4,7 @@ ruby "2.5.1"
 
 gem "dotenv-rails", groups: %i[development test]
 
-gem "rails", "5.2.2"
+gem "rails", "5.2.2.1"
 
 gem "delayed_job_active_record"
 gem "dragonfly"
