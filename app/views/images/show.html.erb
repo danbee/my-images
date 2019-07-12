@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <h1>My Images</h1>
+  <h1><%= link_to "My Images", user_images_path %></h1>
   &rarr;
   <%= @image.image.name %>
 <% end %>
