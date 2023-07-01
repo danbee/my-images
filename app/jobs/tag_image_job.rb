@@ -1,3 +1,5 @@
+require "clarifai"
+
 class TagImageJob < ApplicationJob
   queue_as :default
 
@@ -5,6 +7,6 @@ class TagImageJob < ApplicationJob
     image = Image.find(image_id)
 
     tags = Clarifai.new(image.image.file.path).tags
-    image.update_attributes(tags: tags)
+    image.update(tags: tags)
   end
 end

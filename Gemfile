@@ -1,24 +1,33 @@
 source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.6.3"
+ruby "3.2.1"
+
+gem "rails", "~> 7.0.5", ">= 7.0.5.1"
 
 gem "dotenv-rails", groups: %i[development test]
 
-gem "rails", "5.2.4.1"
-
+gem "bootsnap", require: false
 gem "delayed_job_active_record"
 gem "dragonfly"
 gem "http"
+gem "image_processing", "~> 1.2"
+gem "importmap-rails"
+gem "jbuilder"
+gem "omniauth"
+gem "omniauth-rails_csrf_protection"
 gem "omniauth-github"
 gem "pg"
 gem "puma"
-gem "sass-rails"
+gem "sassc-rails"
 gem "simple_form"
+gem "stimulus-rails"
+gem "turbo-rails"
 gem "uglifier"
 gem "webpacker"
 
-group :doc do
-  gem "sdoc", require: false
+group :development do
+  gem "web-console"
 end
 
 group :development, :test do
