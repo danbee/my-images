@@ -20,12 +20,12 @@ const config = () => ({
 
 export default {
   createTag: (tag) => {
-    return axios.post(`/user/images/${imageId()}/tags`, { tag }, config());
+    return axios.post(`/images/${imageId()}/tags`, { tag }, config());
   },
 
   deleteTag: (tag) => {
     return axios.delete(
-      `/user/images/${imageId()}/tags/${encodeURIComponent(tag)}`,
+      `/images/${imageId()}/tags/${encodeURIComponent(tag)}`,
       config()
     );
   }

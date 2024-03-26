@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    redirect_to user_images_path
+    redirect_to albums_path
   end
 end

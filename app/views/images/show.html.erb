@@ -1,5 +1,9 @@
 <% content_for :title do %>
-  <h1><%= link_to "My Images", user_images_path %></h1>
+  <h1><%= link_to "My Albums", albums_path %></h1>
+  <% if @image.album.present? %>
+    &rarr;
+    <%= link_to @image.album.title, album_images_path(@image.album) %>
+  <% end %>
   &rarr;
   <%= @image.image.name %>
 <% end %>

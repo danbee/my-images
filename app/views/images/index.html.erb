@@ -1,13 +1,17 @@
 <% content_for :title do %>
-  <h1>My Images</h1>
+  <h1><%= link_to "My Albums", albums_path %></h1>
+<% end %>
+
+<% if @album.present? %>
+  <h2><%= @album.title %></h2>
 <% end %>
 
 <ul class="images">
   <% @images.each do |image| %>
     <li>
       <%= link_to image_tag(image.image.thumb('200x200#').url),
-          user_image_path(image), class: :image %><br>
-      <%= link_to 'Delete', user_image_path(image),
+          image_path(image), class: :image %><br>
+      <%= link_to 'Delete', image_path(image),
           method: :delete, data: { confirm: 'Are you sure?' } %>
     </li>
   <% end %>
@@ -15,8 +19,9 @@
 
 <h2>Upload New Image</h2>
 
-<%= simple_form_for [@current_user, @images.new] do |f| %>
+<%= simple_form_for @images.new do |f| %>
   <%= f.input :user_id, as: :hidden %>
+  <%= f.input :album_id, as: :hidden %>
   <%= f.input :image, as: :file %>
   <%= f.submit %>
 <% end %>

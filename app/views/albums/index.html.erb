@@ -1,0 +1,29 @@
+<% content_for :title do %>
+  <h1>My Albums</h1>
+<% end %>
+
+<h2>Albums</h2>
+
+<ul class="images">
+  <% @albums.each do |album| %>
+    <li>
+      <%= link_to album_images_path(album), class: :album do %>
+        <% if album.images.any? %>
+          <%= image_tag(album.images.first.image.thumb('200x200#').url) %>
+        <% else %>
+          <%= image_tag(asset_path("album.svg")) %>
+        <% end %>
+
+        <%= album.title %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Create New Album</h2>
+
+<%= simple_form_for @albums.new do |f| %>
+  <%= f.input :user_id, as: :hidden %>
+  <%= f.input :title %>
+  <%= f.submit %>
+<% end %>

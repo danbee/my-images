@@ -3,7 +3,7 @@
     data-controller="tag">
     <span data-target="tag.name"><%= tag %></span>
     <%= link_to "&times;".html_safe,
-      user_image_tag_path(image, tag),
+      image_tag_path(image, tag),
       data: { action: "click->tag#delete" },
       class: "delete-tag" %>
 </li>
