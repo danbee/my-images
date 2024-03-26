@@ -1,5 +1,7 @@
-<ul class="image-tags-list" id="image-tags" data-target="tags.tagList">
-  <% tags.each do |tag| %>
-    <%= render "tags/tag", image: image, tag: tag %>
-  <% end %>
-</ul>
+<%= turbo_frame_tag "tags" do %>
+  <ul class="image-tags-list" id="image-tags" data-target="tags.tagList">
+    <% tags.each do |tag| %>
+      <%= render "tags/tag", image: image, tag: tag %>
+    <% end %>
+  </ul>
+<% end %>

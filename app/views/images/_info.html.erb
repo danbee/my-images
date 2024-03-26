@@ -3,11 +3,13 @@
     <%= render "tags/tags", image: image, tags: image.tags %>
 
     <div class="new-tag-form">
-      <%= form_tag image_tags_path(image),
+      <%= form_tag(
+        image_tags_path(image),
         method: :post,
-        data: { action: "tags#create" } do %>
-        <%= text_field_tag :tag, nil, data: { target: "tags.tag" } %>
-        <%= submit_tag "Add Tag", data: { disable_with: false } %>
+        data: {"turbo-frame": "tags"}
+      ) do %>
+        <%= text_field_tag :tag, nil %>
+        <%= submit_tag "Add Tag" %>
       <% end %>
     </div>
   </div>

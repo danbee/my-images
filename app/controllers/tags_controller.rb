@@ -8,7 +8,7 @@ class TagsController < ApplicationController
     if !image.tags.include?(tag)
       image.tags << tag
       image.save
-      render partial: "tags/tag", locals: { image: image, tag: tag }
+      redirect_to image, turbo_frame: "tags"
     else
       head :no_content, content_type: "text/html"
     end
@@ -20,6 +20,6 @@ class TagsController < ApplicationController
     image.tags.delete(tag)
     image.save
 
-    head :no_content
+    redirect_to image, turbo_frame: "tags"
   end
 end

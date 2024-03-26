@@ -8,6 +8,13 @@ class ImagesController < ApplicationController
 
   def show
     @image = @current_user.images.find(params[:id])
+
+    if turbo_frame_request?
+      render partial: "tags/tags", locals: {
+        image: @image,
+        tags: @image.tags
+      }
+    end
   end
 
   def create
