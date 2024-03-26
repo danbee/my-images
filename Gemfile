@@ -24,7 +24,6 @@ gem "simple_form"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "uglifier"
-gem "webpacker"
 
 group :development do
   gem "web-console"
