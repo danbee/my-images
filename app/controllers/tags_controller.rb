@@ -5,7 +5,7 @@ class TagsController < ApplicationController
     image = @current_user.images.find(params[:image_id])
     tag = params[:tag]
 
-    if !image.tags.include?(tag)
+    if !image.tags.include?(tag) && tag.present?
       image.tags << tag
       image.save
       redirect_to image, turbo_frame: "tags"
