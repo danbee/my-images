@@ -1,7 +1,12 @@
 <% content_for :title, "My Images" %>
 
 <div class="centre-stage">
-  <%= link_to '/auth/github', class: "github-button", method: :post do %>
+  <%= button_to(
+    '/auth/github',
+    class: "github-button",
+    method: :post,
+    data: {turbo: false}
+  ) do %>
     <%= image_tag "github.svg" %>
     Sign in with GitHub
   <% end %>

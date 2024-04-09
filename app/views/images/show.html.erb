@@ -4,9 +4,9 @@
     &rarr;
     <%= link_to @image.album.title, album_images_path(@image.album) %>
   <% end %>
-  &rarr;
-  <%= @image.image.name %>
 <% end %>
+
+<h2><%= @image.image.name %></h2>
 
 <div class="show-image" data-image-id="<%= @image.id %>">
   <div class="image-container">

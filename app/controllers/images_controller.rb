@@ -8,19 +8,18 @@ class ImagesController < ApplicationController
 
   def show
     @image = @current_user.images.find(params[:id])
-
-    if turbo_frame_request?
-      render partial: "tags/tags", locals: {
-        image: @image,
-        tags: @image.tags
-      }
-    end
   end
 
   def create
-    @image = Image.create(permitted_params)
-    @current_user.images << @image
-    TagImageJob.perform_later(image_id: @image.id)
+    permitted_params[:images].select(&:present?).each do |image|
+      @image = Image.create(
+        user_id: permitted_params[:user_id],
+        album_id: permitted_params[:album_id],
+        image: image,
+      )
+      @current_user.images << @image
+      TagImageJob.perform_later(image_id: @image.id)
+    end
 
     redirect_for(@image)
   end
@@ -53,6 +52,6 @@ class ImagesController < ApplicationController
   end
 
   def permitted_params
-    params.require(:image).permit(:user_id, :album_id, :image)
+    params.require(:image).permit(:user_id, :album_id, images: [])
   end
 end
